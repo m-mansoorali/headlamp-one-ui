@@ -1,8 +1,11 @@
 # Headlamp One UI
 
-A simple dashboard for managing and navigating multiple Kubernetes clusters.
+A unified interface for accessing multiple Headlamp dashboards.
 
-## Current Status
-- Basic UI skeleton created
-- Added simple static cluster cards
-- Preparing for dynamic cluster data in future updates
+## Current Features
+
+- Basic UI skeleton
+- Static cluster cards replaced with dynamic rendering
+- Clusters now loaded from `dashboard-config.json`
+
+More enhancements coming soon.
