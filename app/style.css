@@ -1,0 +1,36 @@
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  header {
+    background: #1e293b;
+    color: white;
+    padding: 16px;
+  }
+  
+  main {
+    padding: 24px;
+  }
+  
+  .cluster-container {
+    border: 2px dashed #cbd5e1;
+    padding: 24px;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .placeholder {
+    color: #64748b;
+    font-style: italic;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+    color: #64748b;
+  }
