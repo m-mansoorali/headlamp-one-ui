@@ -2,5 +2,7 @@
 
 A simple dashboard for managing and navigating multiple Kubernetes clusters.
 
-This is an early work-in-progress.  
-More features will be added over time.
+## Current Status
+- Basic UI skeleton created
+- Added simple static cluster cards
+- Preparing for dynamic cluster data in future updates

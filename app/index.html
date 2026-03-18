@@ -2,23 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Headlamp One UI</title>
+  <title>Cluster Dashboard</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Headlamp One UI</h1>
+    <h1>Cluster Dashboard</h1>
   </header>
 
   <main>
     <div id="cluster-container" class="cluster-container">
-      <!-- Clusters will be rendered here later -->
-      <p class="placeholder">No clusters loaded yet.</p>
+      <!-- Basic static cluster cards -->
+      <div class="cluster-card">
+        <h2>Cluster A</h2>
+        <p>Environment: Production</p>
+        <button>Open</button>
+      </div>
+
+      <div class="cluster-card">
+        <h2>Cluster B</h2>
+        <p>Environment: Staging</p>
+        <button>Open</button>
+      </div>
+
+      <div class="cluster-card">
+        <h2>Cluster C</h2>
+        <p>Environment: Development</p>
+        <button>Open</button>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>Headlamp One UI — Work in progress</p>
+    <p>Cluster Dashboard — Work in progress</p>
   </footer>
 
   <script src="script.js"></script>

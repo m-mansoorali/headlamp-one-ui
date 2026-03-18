@@ -1,2 +1,2 @@
 // Placeholder for future dynamic cluster rendering
-console.log("Cluster Dashboard initialized");
+console.log("Headlamp One UI: basic cluster card loaded");
