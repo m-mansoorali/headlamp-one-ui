@@ -27,21 +27,12 @@ function render() {
 
       card.innerHTML = `
         <h2>${c.name}</h2>
-        <div class="status">
-          <span class="dot ${c.status}"></span>
-          <span>${c.status}</span>
-        </div>
         <div class="meta">
           <div>Environment: ${c.environment}</div>
           <div>Version: ${c.version}</div>
-          <div>Nodes: ${c.nodes}</div>
-          <div>Region: ${c.region}</div>
         </div>
         <div class="actions">
           <button onclick="window.open('${c.headlampUrl}', '_blank')">Headlamp</button>
-          ${c.metricsUrl ? `<button class="secondary" onclick="window.open('${c.metricsUrl}', '_blank')">Metrics</button>` : ""}
-          ${c.logsUrl ? `<button class="secondary" onclick="window.open('${c.logsUrl}', '_blank')">Logs</button>` : ""}
-          ${c.k9sUrl ? `<button class="secondary" onclick="window.open('${c.k9sUrl}', '_blank')">K9s</button>` : ""}
         </div>
       `;
 
