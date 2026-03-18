@@ -11,6 +11,17 @@
   </header>
 
   <main>
+    <div class="controls">
+      <input id="searchInput" type="text" placeholder="Search clusters..." />
+
+      <div class="filters">
+        <button data-env="all" class="active">All</button>
+        <button data-env="Production">Prod</button>
+        <button data-env="Staging">Staging</button>
+        <button data-env="Development">Dev</button>
+      </div>
+    </div>
+
     <div id="cluster-container" class="cluster-container">
       <p class="placeholder">Loading clusters...</p>
     </div>

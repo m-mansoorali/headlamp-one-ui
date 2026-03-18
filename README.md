@@ -4,8 +4,12 @@ A unified interface for accessing multiple Headlamp dashboards.
 
 ## Current Features
 
-- Basic UI skeleton
-- Static cluster cards replaced with dynamic rendering
-- Clusters now loaded from `dashboard-config.json`
+- Dynamic cluster rendering from JSON config
+- Search bar for filtering clusters
+- Environment filters (Prod, Staging, Dev)
+- Status indicators (healthy, warning, critical)
+- Cluster metadata (version, nodes, region)
+- Action buttons for Headlamp, Metrics, Logs, K9s
+- Modern card-based UI
 
 More enhancements coming soon.
