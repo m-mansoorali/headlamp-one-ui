@@ -1,0 +1,224 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: headlamp-one-ui
+  namespace: headlamp-one-ui
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Headlamp One UI</title>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+      <header>
+        <h1>Headlamp One UI</h1>
+      </header>
+
+      <main>
+        <div class="controls">
+          <input id="searchInput" type="text" placeholder="Search clusters..." />
+
+          <div class="filters">
+            <button data-env="all" class="active">All</button>
+            <button data-env="Production">Prod</button>
+            <button data-env="Staging">Staging</button>
+            <button data-env="Development">Dev</button>
+          </div>
+        </div>
+
+        <div id="cluster-container" class="cluster-container">
+          <p class="placeholder">Loading clusters...</p>
+        </div>
+      </main>
+
+      <footer>
+        <p>Headlamp One UI — Work in progress</p>
+      </footer>
+
+      <script src="script.js"></script>
+    </body>
+    </html>
+  style.css: |
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+    
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 16px;
+    }
+    
+    main {
+      padding: 24px;
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    #searchInput {
+      padding: 8px 12px;
+      width: 250px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+    
+    .filters button {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #e2e8f0;
+    }
+    
+    .filters button.active {
+      background: #1e293b;
+      color: white;
+    }
+    
+    .cluster-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    
+    .cluster-card {
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    
+    .cluster-card h2 {
+      margin: 0 0 6px 0;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    .dot.healthy { background: #22c55e; }
+    .dot.warning { background: #eab308; }
+    .dot.critical { background: #ef4444; }
+    
+    .meta {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    
+    .actions button {
+      margin-right: 8px;
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #1e293b;
+      color: white;
+    }
+    
+    .actions button.secondary {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+  script.js: |
+    let clusters = [];
+    let activeEnv = "all";
+
+    async function loadClusters() {
+      const res = await fetch("dashboard-config.json");
+      const data = await res.json();
+      clusters = data.clusters;
+      render();
+    }
+
+    function render() {
+      const container = document.getElementById("cluster-container");
+      const q = document.getElementById("searchInput").value.toLowerCase();
+
+      container.innerHTML = "";
+
+      clusters
+        .filter(c => activeEnv === "all" || c.environment === activeEnv)
+        .filter(c =>
+          c.name.toLowerCase().includes(q) ||
+          c.environment.toLowerCase().includes(q) ||
+          (c.region || "").toLowerCase().includes(q)
+        )
+        .forEach(c => {
+          const card = document.createElement("div");
+          card.className = "cluster-card";
+
+          card.innerHTML = `
+            <h2>${c.name}</h2>
+            <div class="meta">
+              <div>Environment: ${c.environment}</div>
+              <div>Version: ${c.version}</div>
+            </div>
+            <div class="actions">
+              <button onclick="window.open('${c.headlampUrl}', '_blank')">Headlamp</button>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+    }
+
+    document.getElementById("searchInput").addEventListener("input", render);
+
+    document.querySelectorAll(".filters button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeEnv = btn.dataset.env;
+        render();
+      });
+    });
+
+    loadClusters();
+  dashboard-config.json: |
+    {
+        "clusters": [
+          {
+            "name": "Cluster A",
+            "environment": "Production",
+            "version": "v1.29.3",
+            "headlampUrl": "https://headlamp-a.example.com"
+          },
+          {
+            "name": "Cluster B",
+            "environment": "Staging",
+            "version": "v1.28.7",
+            "headlampUrl": "https://headlamp-b.example.com"
+          },
+          {
+            "name": "Cluster C",
+            "environment": "Development",
+            "version": "v1.27.9",
+            "headlampUrl": "https://headlamp-c.example.com"
+          }
+        ]
+      }
