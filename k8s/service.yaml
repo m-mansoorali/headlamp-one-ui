@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: headlamp-one-ui
+  namespace: headlamp-one-ui
+spec:
+  selector:
+    app: headlamp-one-ui
+  ports:
+    - port: 80
+      targetPort: 80
+      name: http
