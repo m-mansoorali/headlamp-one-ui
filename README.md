@@ -7,7 +7,6 @@ A unified interface for accessing multiple Headlamp dashboards.
 - Dynamic cluster rendering from JSON config
 - Search bar for filtering clusters
 - Environment filters (Prod, Staging, Dev)
-- Cluster metadata (version)
 - Action button for Headlamp
 - Modern card-based UI
 

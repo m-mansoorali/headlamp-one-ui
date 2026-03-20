@@ -176,7 +176,6 @@ data:
             <h2>${c.name}</h2>
             <div class="meta">
               <div>Environment: ${c.environment}</div>
-              <div>Version: ${c.version}</div>
             </div>
             <div class="actions">
               <button onclick="window.open('${c.headlampUrl}', '_blank')">Headlamp</button>
@@ -205,19 +204,16 @@ data:
           {
             "name": "Cluster A",
             "environment": "Production",
-            "version": "v1.29.3",
             "headlampUrl": "https://headlamp-a.example.com"
           },
           {
             "name": "Cluster B",
             "environment": "Staging",
-            "version": "v1.28.7",
             "headlampUrl": "https://headlamp-b.example.com"
           },
           {
             "name": "Cluster C",
             "environment": "Development",
-            "version": "v1.27.9",
             "headlampUrl": "https://headlamp-c.example.com"
           }
         ]
