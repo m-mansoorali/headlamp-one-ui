@@ -1,0 +1,25 @@
+apiVersion: security.gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: headlamp-one-ui-oidc
+  namespace: headlamp-one-ui
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: headlamp-one-ui
+  oidc:
+    provider:
+      issuer: "https://login.microsoftonline.com/<tenant-id>/v2.0"
+      authorizationEndpoint: "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize"
+      tokenEndpoint: "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token"
+      jwksUri: "https://login.microsoftonline.com/<tenant-id>/discovery/v2.0/keys"
+    clientId: "<client-id>"
+    clientSecret:
+      name: headlamp-one-ui-oidc
+      key: client-secret
+    redirectUri: "https://headlamp-one-ui.example.com/callback"
+    scopes:
+      - openid
+      - profile
+      - email

@@ -68,3 +68,29 @@ kubectl apply -f k8s/tls-secret.yaml
 2. Update DNS to point to the Gateway LB
 
 More enhancements coming soon.
+
+#### 🔐 OIDC Authentication (Optional)
+
+
+
+Headlamp One UI supports OIDC authentication through Envoy Gateway’s SecurityPolicy.
+
+
+
+##### Requirements
+
+
+
+- An existing Gateway that supports SecurityPolicy
+
+- A registered OIDC application (Azure AD, Okta, Auth0, etc.)
+
+
+
+##### Apply OIDC Secret
+
+
+
+```bash
+
+kubectl apply -f k8s/oidc-secret.yaml
