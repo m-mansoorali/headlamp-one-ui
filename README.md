@@ -10,6 +10,18 @@ A unified interface for accessing multiple Headlamp dashboards.
 - Action button for Headlamp
 - Modern card-based UI
 
+## Helm Chart Deployment
+
+The Helm chart lives under
+```bash
+charts/headlamp-one-ui/
+```
+Installation can be done using
+```bash
+helm install headlamp-one-ui ./charts/headlamp-one-ui \
+  -n headlamp-one-ui --create-namespace
+```
+
 ## Kubernetes Deployment
 
 The UI can now be deployed inside a Kubernetes cluster.
