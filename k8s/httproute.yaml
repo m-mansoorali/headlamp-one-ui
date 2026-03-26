@@ -17,8 +17,3 @@ spec:
       backendRefs:
         - name: headlamp-one-ui
           port: 80
-      filters:
-        - type: RequestRedirect
-          requestRedirect:
-            scheme: https
-            statusCode: 308
