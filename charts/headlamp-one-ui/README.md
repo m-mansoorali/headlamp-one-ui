@@ -10,6 +10,20 @@ Application teams own the HTTPRoute.
 ---
 
 ## 🚀 Quickstart
+Update cluster information in values.yaml 
+For example:
+```bash
+config:
+  clusters:
+    - name: prod-eu
+      url: https://headlamp-prod.example.com
+      environment: prod
+      status: healthy
+    - name: staging-us
+      url: https://headlamp-staging.example.com
+      environment: staging
+      status: warning
+```
 
 ```bash
 helm install headlamp-one-ui ./charts/headlamp-one-ui -n headlamp-one-ui --create-namespace
