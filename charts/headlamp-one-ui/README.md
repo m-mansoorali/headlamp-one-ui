@@ -12,5 +12,9 @@ Application teams own the HTTPRoute.
 ## 🚀 Quickstart
 
 ```bash
-helm install headlamp-one-ui ./charts/headlamp-one-ui \
-  -n headlamp-one-ui --create-namespace
+helm install headlamp-one-ui ./charts/headlamp-one-ui -n headlamp-one-ui --create-namespace
+```
+if testing locally without httpRoute that you can access it on 127.0.01 by using port-forward
+```bash
+ kubectl port-forward svc/headlamp-one-ui -n headlamp-one-ui 8080:80
+```
