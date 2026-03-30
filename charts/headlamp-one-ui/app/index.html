@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Headlamp One UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Headlamp One UI</h1>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input id="searchInput" type="text" placeholder="Search clusters..." />
+
+      <div class="filters">
+        <button data-env="all" class="active">All</button>
+        <button data-env="Production">Prod</button>
+        <button data-env="Staging">Staging</button>
+        <button data-env="Development">Dev</button>
+      </div>
+    </div>
+
+    <div id="cluster-container" class="cluster-container">
+      <p class="placeholder">Loading clusters...</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Headlamp One UI — Work in progress</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

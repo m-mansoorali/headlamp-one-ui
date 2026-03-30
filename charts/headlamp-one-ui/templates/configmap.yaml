@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "headlamp-one-ui.fullname" . }}
+data:
+  index.html: |
+{{ .Files.Get "app/index.html" | indent 4 }}
+  styles.css: |
+{{ .Files.Get "app/styles.css" | indent 4 }}
+  script.js: |
+{{ .Files.Get "app/script.js" | indent 4 }}
+  dashboard-config.json: |
+{{ toJson .Values.config | indent 4 }}

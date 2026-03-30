@@ -1,0 +1,19 @@
+{
+    "clusters": [
+      {
+        "name": "Cluster A",
+        "environment": "Production",
+        "headlampUrl": "https://headlamp-a.example.com"
+      },
+      {
+        "name": "Cluster B",
+        "environment": "Staging",
+        "headlampUrl": "https://headlamp-b.example.com"
+      },
+      {
+        "name": "Cluster C",
+        "environment": "Development",
+        "headlampUrl": "https://headlamp-c.example.com"
+      }
+    ]
+  }

@@ -1,0 +1,28 @@
+image:
+  repository: nginx
+  tag: "1.27-alpine"
+  pullPolicy: IfNotPresent
+
+fullnameOverride: headlamp-one-ui
+
+
+service:
+  type: ClusterIP
+  port: 80
+
+config:
+  clusters:
+    - name: cam-preprod
+      url: https://headlamp-prod.example.com
+      environment: cam-pre-prod
+    - name: staging-us
+      url: https://headlamp-staging.example.com
+      environment: staging
+  # Users can override dashboard-config.json here
+
+httpRoute:
+  enabled: false
+  annotations: {}
+  hostnames: []
+  parentRefs: []
+  rules: []
