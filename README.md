@@ -21,6 +21,14 @@ Installation can be done using
 helm install headlamp-one-ui ./charts/headlamp-one-ui \
   -n headlamp-one-ui --create-namespace
 ```
+### 🔄 Upgrading
+
+#### Minor upgrades
+Safe to upgrade in place:
+
+```bash
+helm upgrade headlamp-one-ui ./charts/headlamp-one-ui -n headlamp-one-ui
+```
 
 ## Kubernetes Deployment
 
@@ -106,3 +114,4 @@ Headlamp One UI supports OIDC authentication through Envoy Gateway’s SecurityP
 ```bash
 
 kubectl apply -f k8s/oidc-secret.yaml
+```
