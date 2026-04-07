@@ -15,8 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - 
 
+## [0.1.2] - 2026-04-07
+### Changed
+- Update parent readme file with working helm readme
+
 ## [0.1.1] - 2026-04-07
-### Changes
+### Changed
 - Documentation updates only (no functional changes)
 
 ## [0.1.0] - 2026-03-30
